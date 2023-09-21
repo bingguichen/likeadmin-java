@@ -93,7 +93,7 @@
             </el-card>
         </div>
         <div class="md:flex">
-            <el-card class="flex-1 !border-none md:mr-4 mb-4" shadow="never">
+            <el-card class="flex-1 !border-none" shadow="never">
                 <template #header>
                     <span>访问量趋势图</span>
                 </template>
@@ -105,6 +105,7 @@
                     />
                 </div>
             </el-card>
+            <!--
             <el-card class="!border-none mb-4" shadow="never">
                 <template #header>
                     <span>服务支持</span>
@@ -126,6 +127,7 @@
                     </div>
                 </div>
             </el-card>
+            -->
         </div>
     </div>
 </template>
@@ -186,7 +188,7 @@ const workbenchData: any = reactive({
         {
             name: '字典管理',
             image: menu_dict,
-            url: '/setting/dict'
+            url: '/dev_tools/dict'
         },
         {
             name: '代码生成器',

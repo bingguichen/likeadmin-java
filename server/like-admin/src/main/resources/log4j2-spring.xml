@@ -5,7 +5,7 @@
 
     <!-- 变量配置 -->
     <Properties>
-        <property name="LOG_PATTERN" value="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+        <property name="LOG_PATTERN" value="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36}[%L] - %msg%n" />
         <property name="FILE_PATH" value="/www/logs/likeadmin-java/admin" />
         <property name="FILE_NAME" value="admin-log4j2" />
     </Properties>
@@ -14,7 +14,6 @@
         <!-- 控制台输出 -->
         <console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="${LOG_PATTERN}"/>
-            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
         </console>
 
         <!-- 临时测试日志 -->
@@ -58,17 +57,17 @@
 
     <loggers>
         <!-- 过滤指定DEBUG信息 -->
-        <logger name="org.mybatis" level="info" additivity="false">
+        <logger name="org.mybatis" level="DEBUG" additivity="false">
             <AppenderRef ref="Console"/>
         </logger>
 
         <!-- 监控系统信息 -->
-        <Logger name="org.springframework" level="info" additivity="false">
+        <Logger name="org.springframework" level="DEBUG" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
 
         <!-- 初始化日志 -->
-        <root level="info">
+        <root level="DEBUG">
             <appender-ref ref="Console"/>
             <appender-ref ref="Filelog"/>
             <appender-ref ref="RollingFileInfo"/>
